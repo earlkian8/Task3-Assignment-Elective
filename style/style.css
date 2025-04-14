@@ -1,0 +1,243 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.button-container{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.table-container{
+    height: 90%;
+    width: 100%;
+    border: 1px solid #c0c0c0;
+}
+
+
+.table-style{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tr-head-style{
+    background-color: #383838;
+    color: #ffffff;
+    border: 1px solid #c0c0c0;
+}
+
+.tr-body-style{
+    border: 1px solid #c0c0c0;
+}
+
+.th-style, .td-style{
+    padding: .25em;
+    text-align: left;
+    padding-left: .50em;
+}
+
+.box-container{
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-button-style{
+    padding: .75em 3em;
+    border-style: none;
+    background-color: #519cff;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-right: 1em;
+}
+
+
+#atd{
+    text-align: center;
+}
+
+.action-td-style{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-button-style, .delete-button-style{
+    padding: .50em 1em;
+    border-radius: 5px;
+    border-style: none;
+}
+
+.edit-button-style{
+    background-color: #4CAF50;
+    color: #ffffff;
+    margin: .25em;
+}
+
+.delete-button-style{
+    background-color: rgb(255, 71, 71);
+    color: #ffffff;
+}
+
+#a{
+    width: 5%;
+    text-align: center;
+}
+
+#b{
+    width: 20%;
+}
+#c{
+    width: 30%;
+}
+#d{
+    width: 10%;
+}
+#e{
+    width: 10%;
+}
+
+#f{
+    width: 10%;
+}
+
+#g{
+    width: 15%;
+    text-align: center;
+}
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c0c0c0;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background: #383838;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s opacity ease-in-out, .25s visibility ease-in-out;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show{
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+
+#bookName, #authorName, #bookType, #targetDate:focus{
+    outline: none;
+}

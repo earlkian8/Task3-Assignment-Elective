@@ -1,0 +1,10 @@
+CREATE DATABASE task3_assignment_elective;
+
+CREATE TABLE reading_list (
+    read_id INT AUTO_INCREMENT PRIMARY KEY,
+    book_name VARCHAR(100) NOT NULL,
+    author_name VARCHAR(100) NOT NULL,
+    type ENUM('Fiction', 'Non-Fiction') NOT NULL,
+    target_date DATE NOT NULL,
+    status ENUM('Ongoing', 'Completed') NOT NULL DEFAULT 'Ongoing'
+);
