@@ -8,3 +8,30 @@ CREATE TABLE reading_list (
     target_date DATE NOT NULL,
     status ENUM('Ongoing', 'Completed') NOT NULL DEFAULT 'Ongoing'
 );
+
+//1. Prioritizes the books that are currently read
+    SELECT * FROM reading_list
+    ORDER BY status = 'Ongoing' DESC;
+
+//2. Add List
+    INSERT INTO reading_list (book_name, author_name, type, target_date)
+    VALUES ('The Archivist of the forgotten Black Men', 'Earl Kian', 'Fiction', '2025-04-14');
+
+//3. Update List
+    UPDATE reading_list
+    SET 
+        book_name = 'The Archivist of Forgotten Black Men',
+        author_name = 'Earl Kian',
+        type = 'Fiction',
+        target_date = '2025-05-01',
+    WHERE read_id = 1;
+
+//4. Delete List
+    DELETE FROM reading_list
+    WHERE read_id = 1;
+
+    
+//5. Update Status into Completed
+    UPDATE reading_list
+    SET status = 'Completed'
+    WHERE read_id = 1;
