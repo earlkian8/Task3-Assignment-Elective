@@ -13,7 +13,7 @@
                     <h2 class="modal-title">Add New Book</h2>
                     <span class="close" id="close">&times;</span>
                 </div>
-                <form id="addBookForm">
+                <form id="addBookForm" action="index.php" method="POST">
                     <div class="form-group">
                         <label for="bookName">Book Name</label>
                         <input type="text" id="bookName" name="bookName" required>
