@@ -150,7 +150,7 @@ input[type="checkbox"]:checked::after {
     visibility: hidden;
     transition: .25s opacity ease-in-out, .25s visibility ease-in-out;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
@@ -309,5 +309,6 @@ td{
 thead{
     position: sticky;
     top: 0;
+    z-index: 1;
     background-color: #383838;
 }
