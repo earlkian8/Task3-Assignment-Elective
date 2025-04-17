@@ -107,7 +107,7 @@
                             <th class="th-style" id="a"></th>
                             <th class="th-style" id="b">Book Name</th>
                             <th class="th-style" id="c">Author Name</th>
-                            <th class="th-style" id="d">Ouch Count</th>
+                            <th class="th-style" id="d">Type</th>
                             <th class="th-style" id="e">Target Date</th>
                             <th class="th-style" id="f">Status</th>
                             <th class="th-style" id="g">Action</th>

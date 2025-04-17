@@ -309,6 +309,5 @@ td{
 thead{
     position: sticky;
     top: 0;
-    z-index: 998;
     background-color: #383838;
 }
