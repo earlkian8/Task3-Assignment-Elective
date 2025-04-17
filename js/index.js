@@ -191,13 +191,11 @@ function actionComplete(listData) {
     })
     .then(response => response.json())
     .then(data => {
-        // Update only the status cell in the same row
         const row = checkbox.closest('tr');
         row.querySelector('td:nth-child(6)').textContent = newStatus;
     })
     .catch(error => {
         console.error(error);
-        // Revert checkbox if error occurs
         checkbox.checked = !checkbox.checked;
     });
 }
