@@ -30,24 +30,36 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function addList(){
+    const selectedType = document.querySelector('input[name="bookType"]:checked');
+    if (!selectedType) {
+        alert("Please select a book type");
+        return false;
+    }
+
     const formData = {
         bookName: document.getElementById("bookName").value.trim(),
         authorName: document.getElementById("authorName").value.trim(),
-        type: document.getElementById("bookType").value.trim(),
+        type: selectedType.value,
         targetDate: document.getElementById("targetDate").value
     }
-        fetch("api/reading_list_api.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("addBookModal").classList.remove("show");
-        })
-        .catch(error => console.error(error));
+
+    fetch("api/reading_list_api.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("addBookModal").classList.remove("show");
+        document.getElementById("addBookForm").reset();
+        document.getElementById("contentTbody").innerHTML = "";
+        getList();
+    })
+    .catch(error => console.error(error));
+    
+    return false;
 }
 
 function getList(){
@@ -111,8 +123,12 @@ function editModal(listData){
     document.getElementById("editId").value = listData.read_id;
     document.getElementById("editBookName").value = listData.book_name;
     document.getElementById("editAuthorName").value = listData.author_name;
-    document.getElementById("editBookType").value = listData.type;
     document.getElementById("editTargetDate").value = listData.target_date;
+    if (listData.type === "Fiction") {
+        document.getElementById("editFiction").checked = true;
+    } else if (listData.type === "Non-Fiction") {
+        document.getElementById("editNonFiction").checked = true;
+    }
 
     document.getElementById("editBookModal").classList.add("show");
 
@@ -123,25 +139,36 @@ function editModal(listData){
 }
 
 function editList(){
+    const selectedEditType = document.querySelector('input[name="editBookType"]:checked');
+    if (!selectedEditType) {
+        alert("Please select a book type");
+        return false;
+    }
+
     const formData = {
         editId: Number(document.getElementById("editId").value),
         editBookName: document.getElementById("editBookName").value.trim(),
         editAuthorName: document.getElementById("editAuthorName").value.trim(),
-        editBookType: document.getElementById("editBookType").value.trim(),
+        editBookType: selectedEditType.value,
         editTargetDate: document.getElementById("editTargetDate").value
     }
-        fetch("api/reading_list_api.php", {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("editBookModal").classList.remove("show");
-        })
-        .catch(error => console.error(error));
+
+    fetch("api/reading_list_api.php", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("editBookModal").classList.remove("show");
+        document.getElementById("contentTbody").innerHTML = "";
+        getList()
+    })
+    .catch(error => console.error(error));
+    
+    return false;
 }
 
 function deleteList(listData){

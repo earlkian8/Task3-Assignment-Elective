@@ -25,11 +25,12 @@
                 </div>
                 <div class="form-group">
                 <label for="bookType">Type</label>
-                <select id="bookType" name="bookType" required>
-                    <option value="">Select a type</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="Non-Fiction">Non-Fiction</option>
-                </select>
+                    <div class="radio-group">
+                        <input type="radio" id="fiction" name="bookType" value="Fiction" required>
+                        <label for="fiction">Fiction</label>
+                        <input type="radio" id="nonFiction" name="bookType" value="Non-Fiction" required>
+                        <label for="nonFiction">Non-Fiction</label>
+                    </div>
                 </div>
                 <div class="form-group">
                 <label for="targetDate">Target Date</label>
@@ -61,11 +62,12 @@
                 </div>
                 <div class="form-group">
                 <label for="editBookType">Type</label>
-                <select id="editBookType" name="editBookType" required>
-                    <option value="">Select a type</option>
-                    <option value="Fiction">Fiction</option>
-                    <option value="Non-Fiction">Non-Fiction</option>
-                </select>
+                    <div class="radio-group">
+                        <input type="radio" id="editFiction" name="editBookType" value="Fiction" required>
+                        <label for="editFiction">Fiction</label>
+                        <input type="radio" id="editNonFiction" name="editBookType" value="Non-Fiction" required>
+                        <label for="editNonFiction">Non-Fiction</label>
+                    </div>
                 </div>
                 <div class="form-group">
                 <label for="editTargetDate">Target Date</label>
